@@ -1,0 +1,18 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/admin/myapplication
+hooks:
+  BeforeInstall:
+    - location: CI-CD/before_install.sh
+      timeout: 300
+      runas: admin
+  AfterInstall:
+    - location: CI-CD/after_install.sh
+      timeout: 300
+      runas: admin
+  ApplicationStart:
+    - location: CI-CD/application_start.sh
+      timeout: 300
+      runas: admin
